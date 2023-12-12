@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/src/reset.css">
+  <link rel="stylesheet" href="/src/styles.css">
+  <title>To Do List</title>
+</head>
+<body>
+  <!-- definiere sidebar links -->
+  <div class="grid-container" id="grid-container">
+<div id="asidediv">
+  <aside class="side" id="aside">
+    <img src="/images/logo.png" alt="GID-Logo" id="logo">
+    <h1>Get It Done</h1>
+    <p>The Lightwight Organizer</p>
+    <!-- to be defined -->
+    <ul><li></li></ul>
+  </aside>
+</div>
+<!-- primäres div für mitte/listenbereich -->
+<div class="main" id="main">
+  <h2 class="listname" id="listname">Meine ToDos</h2>
+  <!-- bereich für die eingabe -->
+    <div class="input" id="input">
+      <input type="text" id="newitemtxt" placeholder="What do you need to Do?"><button id="addlistitembtn" ><img src="/icons/plus-solid.svg" alt=""></button>
+      <!-- <button id="setpriobtn"></button> -->
+    </div>
+    <!-- bereich für die anzeige von listen items -->
+    <div class="list" id="list">
+      <ul class="todolist" id="todolist">
+      </ul>
+    </div>
+  </div>
+</div>
+  <!-- bereich für den footer -->
+  <footer class="footer" id="footer">
+    <p class="footertxt" id="footertxt">We did it</p>
+  </footer>
+  <script src="main.js"></script>
+</body>
+</html>
