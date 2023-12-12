@@ -1,0 +1,178 @@
+/* definition des grids */
+.grid-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+}
+.footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/* definition von grundlagen styles */
+body{
+    background-color: #181826;
+    color: white;
+}
+.side{
+    background-color: #212134;
+    border-right: 1px solid #383852;
+    min-height: 100%;
+}
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* border-bottom: 1px solid #383852; */
+    min-height: 100vh;
+    min-width: 75%;
+}
+.footer{
+    background-color: #212134;
+    min-height: 3em;
+    display: flex;
+    justify-content: center;
+}
+
+/* aside styles */
+#aside{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 13vw;
+    & #logo{
+        margin-top: 1em;
+        max-width: 100px;
+    }    
+    & h1{
+        font-size: 2em;
+        margin-top: .5em;
+        margin-left: 1em;
+        margin-right: 1em;
+        text-align: center;
+    }
+    & p{
+        margin-top: .5em;
+        font-size: 1em;
+        font-weight: 100;
+        margin-left: 1em;
+        margin-right: 1em;
+        text-align: center;
+
+    }
+
+}
+
+/* input area  */
+#main{
+    & #listname{
+        margin-top: 2em;
+        margin-left: 1em;
+        font-size: 1.5em;
+        text-decoration: underline 1px solid #66B7F1;
+    }
+    & #input{
+        display: flex;
+        align-self: center;
+        justify-content: space-between;
+        margin-top: 2em;
+        min-height: 2.5em;
+        min-width: 40%;
+        border: 1px solid #383852;
+        border-top-left-radius: 1em;
+        border-bottom-left-radius: 1em;
+        background-color: #212134;
+        box-shadow: 0px 3px 6px #FFFFFF16;
+        & #newitemtxt{
+            margin-left: 2em;
+            outline: none;
+            min-height: 80%;
+            min-width: 75%;
+            color: white;
+            background-color: #212134;
+            border: none;
+        }
+        & #newitemtxt:focus{
+            border: none;
+        }
+        & #addlistitembtn{
+            margin-right: 1.5em;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            & img{
+                min-height: 25px;
+                padding: 1px;
+            }
+        }        
+    }
+}
+/* output area and list items */
+
+#list{
+    min-width: 80%;
+    & #todolist{
+        min-width: 80%;
+        margin-right: 10%;
+        margin-left: 5%;
+    }
+}
+#todoitem{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    background-color: #252F65;
+    border: 1px solid #383852;
+    box-shadow: 0px 3px 6px #FFFFFF16;
+    border-top-left-radius: 1em;
+    border-bottom-left-radius: 1em;
+    min-height: 2.5em;
+    margin-top: 3em;
+    padding-left: 2.5em;
+    & #midli{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #212134;
+        min-width: 100%;
+        & #litxt{
+                padding: 1px;
+                margin-left: 1em;
+                margin-right: 2em;
+            }
+        & #libuttons{
+            display: flex;
+            min-height: 100%;
+            & #editbtn{
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+                & img{
+                min-height: 20px;
+                padding: 1px;
+                }
+            }
+            & #delbtn{
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            padding-right: 1em;
+                & img{
+                    min-height: 20px;
+                    padding: 1px;
+                }
+            }
+            & #donebtn{
+            background-color: #4A4A6A;
+            font-size: 1em;
+            padding-left: 1em;
+            padding-right: 1em;
+            color: #66B7F1;
+            min-height: 100%;
+            border: none;
+            cursor: pointer;
+        }
+        }
+    }
+}
