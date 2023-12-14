@@ -1,28 +1,40 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 function ToDoListv1() {
   const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState('');
+  const [isActive, setIsActive] = useState(false);
 
+useEffect(() => {
+
+    const storedTasks = localStorage.getItem('TasksList');
+    if (storedTasks) {
+      setTasks(JSON.parse(storedTasks));
+    }
+  }, []);
+
+const save = (updatedTasks) => {
+    localStorage.setItem('TasksList', JSON.stringify(updatedTasks));
+  };
   const handleAddTask = () => {
     if (!newTask) return;
     setTasks([...tasks, { text: newTask, donedata: false }]);
+    const updatedTasks = [...tasks, { text: newTask, donedata: false }];
+      save(updatedTasks); 
     setNewTask('');
   };
-
+// Delete a task from List of Tasks
   function delTodo(index) {
     let newTasks = [...tasks];
     newTasks.splice(index, 1);
     setTasks([...newTasks]);
+    save(newTasks)
   }
 
   function setStatus(index) {
-    console.log('done status:', tasks[index].donedata);
-    if (tasks[index].donedata == false){
-      tasks[index].donedata = true;
-    }else{
-      tasks[index].donedata = false;
-  } 
+    const updatedTasks = [...tasks];
+    updatedTasks[index].donedata = !updatedTasks[index].donedata;
+    setTasks(updatedTasks);
   }
 
   return (
@@ -31,23 +43,42 @@ function ToDoListv1() {
         type='text'
         value={newTask}
         onChange={(e) => setNewTask(e.target.value)}
-        placeholder='Add your new to do'
+        placeholder='Neue Aufgabe'
       />
-      <button onClick={handleAddTask}>Add your new to do</button>
+      <button onClick={handleAddTask}>Neue Aufgabe</button>
       <ul>
         {tasks.map((task, index) => (
-          // eslint-disable-next-line react/no-unknown-property
-          <li key={index} donedata={task.donedata.toString()}>
-            <p>{task.text}</p>
-            <button tabIndex={index} onClick={() => delTodo(index)}>
-              Remove to do
-            </button>
-            <button onClick={() => setStatus(index)}>Make done</button>
-          </li>
+        <li
+        key={index}
+        className={task.donedata ? 'done' : ''} // Apply 'done' class if donedata is true
+        donedata={task.donedata.toString()}
+      >
+        <p>{task.text}</p>
+        <button tabIndex={index} onClick={() => delTodo(index)}>
+          Remove to do
+        </button>
+        <button onClick={() => setStatus(index)}>
+          {task.donedata ? 'Mark Undone' : 'Mark Done'}
+        </button>
+      </li>
         ))}
       </ul>
     </div>
   );
 }
-
 export default ToDoListv1;
+
+//Switch between not done/done
+  // function setStatus(index) {
+  //   console.log('done status:', tasks[index].donedata);
+  //   if (tasks[index].donedata == false){
+  //     tasks[index].donedata = true;
+  //     console.log("Switch to true");  
+  //     }else{
+  //     tasks[index].donedata = false;
+  //     console.log("Switch to false");
+  // } 
+  // }
+// className={task.donedata ? 'done' : 'notdone'}
+// onClick={() => setStatus(index)}
+//{isActive ? 'activeClass' : 'inactiveClass'}
