@@ -1,6 +1,6 @@
 export default function TodoElement(props){
-    const [tasks, setTasks] = useState([]);
-    const [newTask, setNewTask] = useState('');
+    // const [tasks, setTasks] = useState([]);
+    // const [newTask, setNewTask] = useState('');
 
     const [todo, setTodo] = useState({
         id: '01',
@@ -14,7 +14,7 @@ export default function TodoElement(props){
     function editTodo(){
         setTodo((item) => ({ 
         ...item,
-        inhalt: props.inhalt
+        inhalt: todo.inhalt
     }))   
     }
 
@@ -38,9 +38,9 @@ export default function TodoElement(props){
     }
 return(
     <>
-        <li id='{todo.id}'>
+        <li key={todo.index}>
         <p>
-        {todo.inhalt}
+        {todo.task}
         </p>
         <button onClick={editTodo}></button>
         <button onClick={delTodo}></button>
