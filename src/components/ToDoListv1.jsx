@@ -3,10 +3,9 @@ import React, { useState, useEffect } from "react";
 function ToDoListv1() {
   const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState('');
-  const [isActive, setIsActive] = useState(false);
+  // const [isActive, setIsActive] = useState(false);
 
 useEffect(() => {
-
     const storedTasks = localStorage.getItem('TasksList');
     if (storedTasks) {
       setTasks(JSON.parse(storedTasks));
@@ -29,6 +28,7 @@ const save = (updatedTasks) => {
       save(updatedTasks); 
     setNewTask('');
   };
+  
 // Delete a task from List of Tasks
   function delTodo(index) {
     let newTasks = [...tasks];
@@ -41,6 +41,7 @@ const save = (updatedTasks) => {
     const updatedTasks = [...tasks];
     updatedTasks[index].donedata = !updatedTasks[index].donedata;
     setTasks(updatedTasks);
+    save(updatedTasks);
   }
 
 
