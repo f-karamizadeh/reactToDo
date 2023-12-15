@@ -64,7 +64,7 @@ const save = (updatedTasks) => {
           <img src="./icons/trash-solid.svg" alt="Delete" />
         </button>
         <button className="statusbtn" onClick={() => setStatus(index)}>
-          {task.donedata ? 'Mark Undone' : 'Mark Done'}
+          {task.donedata ? 'Undone' : 'Done'}
         </button>
         </div>
         </div>
