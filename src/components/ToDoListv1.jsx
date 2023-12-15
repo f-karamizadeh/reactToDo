@@ -18,6 +18,12 @@ const save = (updatedTasks) => {
   };
   const handleAddTask = () => {
     if (!newTask) return;
+    const foundItem = tasks.find(item => item.text === newTask);
+    if (foundItem){
+      alert("ToDo is already exist.");
+      setNewTask('');
+      return;
+    }
     setTasks([...tasks, { text: newTask, donedata: false }]);
     const updatedTasks = [...tasks, { text: newTask, donedata: false }];
       save(updatedTasks); 
