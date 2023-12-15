@@ -3,10 +3,9 @@ import React, { useState, useEffect } from "react";
 function ToDoListv1() {
   const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState('');
-  const [isActive, setIsActive] = useState(false);
+  // const [isActive, setIsActive] = useState(false);
 
 useEffect(() => {
-
     const storedTasks = localStorage.getItem('TasksList');
     if (storedTasks) {
       setTasks(JSON.parse(storedTasks));
