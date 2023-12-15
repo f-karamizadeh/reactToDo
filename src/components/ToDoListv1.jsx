@@ -37,29 +37,37 @@ const save = (updatedTasks) => {
     setTasks(updatedTasks);
   }
 
+
+
   return (
-    <div>
+    <div className="mainarea">
+      <div className="inputarea">
       <input
         type='text'
         value={newTask}
         onChange={(e) => setNewTask(e.target.value)}
         placeholder='Neue Aufgabe'
       />
-      <button onClick={handleAddTask}>Neue Aufgabe</button>
-      <ul>
+      <button className="newbtn" onClick={handleAddTask}><img src="./icons/plus-solid.svg" alt="New Task" /></button>
+      </div>
+      <ul className="list">
         {tasks.map((task, index) => (
         <li
         key={index}
         className={task.donedata ? 'done' : ''} // Apply 'done' class if donedata is true
         donedata={task.donedata.toString()}
       >
-        <p>{task.text}</p>
-        <button tabIndex={index} onClick={() => delTodo(index)}>
-          Remove to do
+        <div className="midli">
+        <p className="litxt">{task.text}</p>
+        <div className="libtns">
+        <button className="delbtn" tabIndex={index} onClick={() => delTodo(index)}>
+          <img src="./icons/trash-solid.svg" alt="Delete" />
         </button>
-        <button onClick={() => setStatus(index)}>
-          {task.donedata ? 'Mark Undone' : 'Mark Done'}
+        <button className="statusbtn" onClick={() => setStatus(index)}>
+          {task.donedata ? 'Undone' : 'Done'}
         </button>
+        </div>
+        </div>
       </li>
         ))}
       </ul>
