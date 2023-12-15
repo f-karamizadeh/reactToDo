@@ -5,8 +5,8 @@ import ToDoListv1 from './components/ToDoListv1';
 
 export default function App() {
     return (
-        <>
+        <div className='listarea'>
         <ToDoListv1 />
-        </>
+        </div>
     );
 }

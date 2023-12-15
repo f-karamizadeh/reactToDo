@@ -1,0 +1,106 @@
+#root{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #181826;
+    color: white;
+    min-height: 100vh;
+}
+.listarea{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2em;
+    min-width: 80%;
+}
+.mainarea{
+    min-width: 50%;
+}
+
+.inputarea{
+    display: flex;
+    align-self: center;
+    justify-content: space-between;
+    margin-top: 2em;
+    min-height: 2em;
+    margin-right: 1em;
+    border: 1px solid #383852;
+    border-top-left-radius: 1em;
+    border-bottom-left-radius: 1em;
+    background-color: #212134;
+    box-shadow: 0px 3px 6px #FFFFFF16;
+    & input{
+        min-width: 100%;
+    }
+    & .newbtn{
+        margin-left: 1em;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+    }
+
+}
+
+
+
+
+
+
+ul{
+    display: flex;
+    flex-direction: column;
+    margin-top: 1em;
+    & li{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        background-color: #252F65;
+        border: 1px solid #383852;
+        box-shadow: 0px 3px 6px #FFFFFF16;
+        border-top-left-radius: 1em;
+        border-bottom-left-radius: 1em;
+        min-height: 2.5em;
+        margin-top: 1.5em;
+        padding-left: 2.5em;
+        & .midli{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #212134;
+            min-width: 100%;
+            & .litxt{
+                padding: 1px;
+                margin-left: 1em;
+                margin-right: 2em;
+            }
+        }
+        & .libtns{
+            display: flex;
+            min-height: 100%;
+            & .delbtn{
+                background-color: transparent;
+                border: none;
+                cursor: pointer;
+                padding-right: 1em;
+                    & img{
+                        min-height: 20px;
+                        padding: 1px;
+                    }
+            }
+            & .statusbtn{
+                background-color: #4A4A6A;
+                font-size: 1em;
+                padding-left: 1em;
+                padding-right: 1em;
+                color: #66B7F1;
+                min-height: 100%;
+                border: none;
+                cursor: pointer;
+        }
+        }
+    }
+}
+.done{
+    opacity: 0.2;     
+}
